@@ -1,2 +1,2 @@
 # ReadMe-Generator
-I simple NodeJS app to build readme.md files
+A simple NodeJS app to build readme.md files
