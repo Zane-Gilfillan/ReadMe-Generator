@@ -53,7 +53,42 @@ inquirer.prompt(
             name: 'license',
         },
     ]
+
+    //setting up a layout for the readme file using literals
 ).then( ({ user, title, description, install, usage, contrib, test, license}) => {
 
+    const layout = `# ${title}
+
+    * [user](#user)
+    * [description](#description)
+    * [install](#install)
+    * [usage](#usage)
+    * [contrib](#contrib)
+    * [test](#test)
+    * [license](#test)
+    ## User
+    ${user}
+
+    ## title
+    ${title}
+
+    ## description
+    ${description}
+
+    ## install
+    ${install}
+
+    ## usage
+    ${usage}
+
+    ## contrib 
+    ${contrib}
+
+    ## test
+    ${test}
+
+    ## license
+    ${license}
+    `
 })
 
