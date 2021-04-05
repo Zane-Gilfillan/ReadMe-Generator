@@ -4,6 +4,11 @@ const fs = require('fs')
 inquirer.prompt(
 
     [
+        {
+            type: 'input',
+            message: 'what is the name of your project?',
+            name: 'title',
+        },
 
         {
             type: 'input',
@@ -11,12 +16,6 @@ inquirer.prompt(
             name: 'user',
         },
 
-        {
-            type: 'input',
-            message: 'what is the name of your project?',
-            name: 'title',
-        },
-        
         {
             type: 'input',
             message: 'tell me a little bit about your project',
@@ -48,47 +47,45 @@ inquirer.prompt(
         },
 
         {
-            type: 'input',
+            type: 'list',
             message: 'choose a license for your project',
             name: 'license',
+            choices: ['MIT', 'GPL', 'Apache', 'GNJ']
         },
     ]
-
-    //setting up a layout for the readme file using literals
 ).then( ({ user, title, description, install, usage, contrib, test, license}) => {
 
-    const layout = `# ${title}
+    const layout = `
 
-    * [user](#user)
-    * [description](#description)
-    * [install](#install)
-    * [usage](#usage)
-    * [contrib](#contrib)
-    * [test](#test)
-    * [license](#test)
-    ## User
-    ${user}
+ # ${title}
+   
+ # Description
+ ${description}
 
-    ## title
-    ${title}
+ # Install
+ ${install}
 
-    ## description
-    ${description}
+ # Usage
+ ${usage}
 
-    ## install
-    ${install}
+ # Contributions
+ ${contrib}
 
-    ## usage
-    ${usage}
+ # Test
+ ${test}
 
-    ## contrib 
-    ${contrib}
+ # License
+ ${license}`;
 
-    ## test
-    ${test}
+    fileBuild(title, layout)
+});
 
-    ## license
-    ${license}
-    `
-})
+function fileBuild(fileName, data) {
+    fs.writeFile(`./${fileName.toLowerCase().split('').join('')}.md`, data, (err) => {
+        if(err){
+            console.log(err)
+        }
+        console.log('all done!')
+    })
+}
 
