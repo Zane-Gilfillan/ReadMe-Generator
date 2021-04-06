@@ -57,25 +57,25 @@ inquirer.prompt(
 
     const layout = `
 
- # ${title}
+# ${title}
    
- # Description
- ${description}
+# Description
+${description}
 
- # Install
- ${install}
+# Install
+${install}
 
- # Usage
- ${usage}
+# Usage
+${usage}
 
- # Contributions
- ${contrib}
+# Contributions
+${contrib}
 
- # Test
- ${test}
+# Test
+${test}
 
- # License
- ${license}`;
+# License
+${license}`;
 
     fileBuild(title, layout)
 });
